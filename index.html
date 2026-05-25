@@ -1,79 +1,214 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story 💕</title>
-    <style>
-        /* 1. CARA PASANG FONT SENDIRI */
-        @font-face {
-            font-family: 'FontRomantis';
-            src: url('font-ku.ttf'); /* Memanggil file font kamu */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Foto Cantik</title>
+  <!-- Mengambil font estetik dari Google Fonts -->
+  <link href="https://googleapis.com" rel="stylesheet">
+  
+  <style>
+    /* Pengaturan Dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #fff5f5; /* Warna latar pink sangat muda */
+      font-family: 'Poppins', sans-serif;
+      color: #4a3b32;
+      background-image: radial-gradient(#ffe3e3 1px, transparent 1px);
+      background-size: 20px 20px;
+      padding-bottom: 50px;
+    }
 
-        /* 2. ATUR LATAR BELAKANG WARNA PINK */
-        body {
-            background-color: #ffb6c1; /* Warna pink muda yang lembut */
-            font-family: 'FontRomantis', sans-serif; /* Memakai font kamu */
-            color: #d11a5b; /* Warna teks pink tua agar kontras */
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+    /* Bagian Header / Judul Website */
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #8c6252;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfa295;
+    }
+    header .pembatas-bunga {
+      font-size: 1.5rem;
+      color: #d4a373;
+      margin-top: 10px;
+    }
 
-        /* 3. HIASAN BUNGA DAN LOVE DI ATAS WEBSITE */
-        .hiasan-atas {
-            font-size: 24px;
-            padding: 20px 0;
-            letter-spacing: 5px;
-        }
+    /* Susunan Galeri Foto (Grid Rapi) */
+    .galeri-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
 
-        /* 4. KOTAK UTAMA UNTUK FOTO DAN TEKS */
-        .kotak-cinta {
-            background: rgba(255, 255, 255, 0.6); /* Kotak putih transparan yang estetik */
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 90%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
+    /* Bingkai Foto Elegan & Motif Bunga */
+    .bingkai-foto {
+      background: #ffffff;
+      padding: 15px 15px 25px 15px;
+      border-radius: 4px;
+      box-shadow: 0 10px 25px rgba(140, 98, 82, 0.15);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    /* Efek interaktif saat foto disentuh/diarahkan kursor */
+    .bingkai-foto:hover {
+      transform: translateY(-5px) rotate(1deg);
+      box-shadow: 0 15px 35px rgba(140, 98, 82, 0.25);
+    }
+    /* Aksen Sudut Bingkai Motif Bunga Tradisional/Klasik */
+    .bingkai-foto::before {
+      content: '🌸';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .bingkai-foto::after {
+      content: '🌸';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
 
-        /* 5. ATUR FOTO AGAR RAPI DAN CANTIK */
-        .foto-kita {
-            width: 100%;
-            max-width: 300px; /* Ukuran foto pas di layar HP */
-            border-radius: 15px; /* Pojok foto melengkung biar gemas */
-            border: 5px solid white; /* Bingkai putih seperti foto Polaroid */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    /* Pengaturan Gambar di Dalam Bingkai */
+    .bingkai-foto img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border: 1px solid #f4e9e4;
+      border-radius: 2px;
+    }
 
-        h1 {
-            font-size: 28px;
-            margin-top: 15px;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
-    </style>
+    /* Teks Keterangan di Bawah Setiap Foto */
+    .keterangan {
+      text-align: center;
+      margin-top: 15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #6b4e42;
+    }
+    .keterangan span {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      color: #a8897c;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Hiasan bunga dan love di sepanjang atas website -->
-    <div class="hiasan-atas">🌸 ✨ 💕 🌸 ✨ 💕 🌸</div>
+  <!-- Bagian Atas Website -->
+  <header>
+    <h1>The Floral Collection</h1>
+    <p>Beautiful Moments Captured</p>
+    <div class="pembatas-bunga">❀ ⚜ ❀</div>
+  </header>
 
-    <!-- Kotak isi website -->
-    <div class="kotak-cinta">
-        <!-- MEMASANG FOTO KAMU DAN CEWE KAMU -->
-        <img src="foto-kita.jpg" alt="Foto Kita" class="foto-kita">
-        
-        <h1>Aku & Kamu Selamanya 👩‍❤️‍👨</h1>
-        <p>Website ini dibuat spesial untuk cewe tersayangku. Setiap sudut halaman ini penuh dengan rasa sayang dan kenangan indah kita berdua.</p>
+  <!-- Bagian Wadah 13 Foto -->
+  <main class="galeri-container">
+  
+    <!-- Foto 1 -->
+    <div class="bingkai-foto">
+      <img src="foto1.jpg" alt="Foto 1">
+      <div class="keterangan">Memories One<span>Beautiful Smile</span></div>
     </div>
 
-    <!-- Hiasan bunga dan love di sepanjang bawah website -->
-    <div class="hiasan-atas">💕 🌸 ✨ 💕 🌸 ✨ 💕</div>
+    <!-- Foto 2 -->
+    <div class="bingkai-foto">
+      <img src="foto2.jpg" alt="Foto 2">
+      <div class="keterangan">Memories Two<span>Warm Sunshine</span></div>
+    </div>
+
+    <!-- Foto 3 -->
+    <div class="bingkai-foto">
+      <img src="foto3.jpg" alt="Foto 3">
+      <div class="keterangan">Memories Three<span>Sweet Day</span></div>
+    </div>
+
+    <!-- Foto 4 -->
+    <div class="bingkai-foto">
+      <img src="foto4.jpg" alt="Foto 4">
+      <div class="keterangan">Memories Four<span>Lovely Moment</span></div>
+    </div>
+
+    <!-- Foto 5 -->
+    <div class="bingkai-foto">
+      <img src="foto5.jpg" alt="Foto 5">
+      <div class="keterangan">Memories Five<span>Pure Elegance</span></div>
+    </div>
+
+    <!-- Foto 6 -->
+    <div class="bingkai-foto">
+      <img src="foto6.jpg" alt="Foto 6">
+      <div class="keterangan">Memories Six<span>Bright Days</span></div>
+    </div>
+
+    <!-- Foto 7 -->
+    <div class="bingkai-foto">
+      <img src="foto7.jpg" alt="Foto 7">
+      <div class="keterangan">Memories Seven<span>Soft Grace</span></div>
+    </div>
+
+    <!-- Foto 8 -->
+    <div class="bingkai-foto">
+      <img src="foto8.jpg" alt="Foto 8">
+      <div class="keterangan">Memories Eight<span>Charming Soul</span></div>
+    </div>
+
+    <!-- Foto 9 -->
+    <div class="bingkai-foto">
+      <img src="foto9.jpg" alt="Foto 9">
+      <div class="keterangan">Memories Nine<span>Blossom Joy</span></div>
+    </div>
+
+    <!-- Foto 10 -->
+    <div class="bingkai-foto">
+      <img src="foto10.jpg" alt="Foto 10">
+      <div class="keterangan">Memories Ten<span>Wonderful Glow</span></div>
+    </div>
+
+    <!-- Foto 11 -->
+    <div class="bingkai-foto">
+      <img src="foto11.jpg" alt="Foto 11">
+      <div class="keterangan">Memories Eleven<span>Golden Hour</span></div>
+    </div>
+
+    <!-- Foto 12 -->
+    <div class="bingkai-foto">
+      <img src="foto12.jpg" alt="Foto 12">
+      <div class="keterangan">Memories Twelve<span>Forever Kind</span></div>
+    </div>
+
+    <!-- Foto 13 -->
+    <div class="bingkai-foto">
+      <img src="foto13.jpg" alt="Foto 13">
+      <div class="keterangan">Memories Thirteen<span>Serene Peace</span></div>
+    </div>
+
+  </main>
 
 </body>
 </html>
